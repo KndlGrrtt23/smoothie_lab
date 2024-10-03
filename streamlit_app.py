@@ -45,9 +45,11 @@ if ingredients_list:
    # st.stop() #kills streamlit function
     time_to_insert = st.button('Submit Order')
 
-fruityvice_response = request.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
        
         st.success('Your Smoothie is ordered!', icon="✅")
+
+
+fruityvice_response = request.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
